@@ -6,7 +6,11 @@ Typescript classes.
 
 ## Usage
 
+Make sure you have the `reflect-metadata` package installed (`npm i reflect-metadata`),
+then do `npm i barnaclejs`.
+
 ```typescript
+import "reflect-metadata";
 import * as barnacle from "barnaclejs";
 
 const manager = new barnacle.EntityManager();
