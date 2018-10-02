@@ -1,0 +1,46 @@
+{
+  "name": "barnaclejs",
+  "version": "0.0.1",
+  "description": "Simple GraphQL schema builder, inferring from Typescript classes",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "files": [
+    "*.d.ts",
+    "*.js",
+    "lib/*.d.ts",
+    "lib/*.js",
+    "lib/**/*.d.ts",
+    "lib/**/*.js"
+  ],
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aldahick/barnacle.git"
+  },
+  "keywords": [
+    "graphql",
+    "typescript",
+    "decorator"
+  ],
+  "author": "Alex Hicks <alex@alexhicks.net> (https://alexhicks.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aldahick/barnacle/issues"
+  },
+  "homepage": "https://github.com/aldahick/barnacle#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "reflect-metadata": "^0.1.12",
+    "source-map-support": "^0.5.9",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  }
+}
