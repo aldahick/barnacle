@@ -36,6 +36,9 @@
   "homepage": "https://github.com/aldahick/barnacle#readme",
   "dependencies": {},
   "devDependencies": {
+    "@types/chai": "^4.1.6",
+    "@types/mocha": "^5.2.5",
+    "@types/source-map-support": "^0.4.1",
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "mocha-junit-reporter": "^1.18.0",
