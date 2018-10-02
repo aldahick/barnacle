@@ -1,8 +1,10 @@
 import * as barnacle from "../../lib";
 
 export class User {
+    constructor(id: number) { this.id = id; }
+
     @barnacle.property()
-    id!: number;
+    id: number;
 
     @barnacle.property({ nullable: true })
     firstName?: string;
