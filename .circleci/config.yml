@@ -20,6 +20,9 @@ jobs:
           name: Compile
           command: ./node_modules/.bin/tsc
       - run:
+          name: Lint
+          command: ./node_modules/.bin/tslint -p .
+      - run:
           name: Unit Tests
           command: node_modules/.bin/mocha --reporter=mocha-junit-reporter
           environment:
