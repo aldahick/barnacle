@@ -1,5 +1,7 @@
 # barnacle
 
+[![CircleCI](https://circleci.com/gh/aldahick/barnacle/tree/master.svg?style=shield)](https://circleci.com/gh/aldahick/barnacle/tree/master) [![npm version](https://badge.fury.io/js/barnaclejs.svg)](https://badge.fury.io/js/barnaclejs)
+
 Barnacle is a very simple GraphQL helper for Typescript. It exposes several
 decorators which allow you to automatically build GraphQL type definitions from
 Typescript classes.

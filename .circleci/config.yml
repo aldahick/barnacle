@@ -1,0 +1,30 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8.12
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run:
+          name: Install NPM modules
+          command: npm i
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: Compile
+          command: ./node_modules/.bin/tsc
+      - run:
+          name: Unit Tests
+          command: mocha --reporter=mocha-junit-reporter
+          environment:
+            MOCHA_FILE: /home/circleci/junit/test-results.xml
+      - store_test_results:
+          path: /home/circleci/junit
+      - store_artifacts:
+          path: /home/circleci/junit
