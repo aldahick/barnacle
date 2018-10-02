@@ -1,5 +1,5 @@
 import "reflect-metadata";
 
-export * from "./EntityManager";
+export * from "./toSchema";
 
 export * from "./decorators";
