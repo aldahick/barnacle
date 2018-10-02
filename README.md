@@ -6,6 +6,14 @@ Barnacle is a very simple GraphQL helper for Typescript. It exposes several
 decorators which allow you to automatically build GraphQL type definitions from
 Typescript classes.
 
+## Warning
+
+Barnacle is in very early stages - each version should be stable for use in production,
+but breaking API changes are likely to occur semi-regularly between versions.
+This will be the case until v0.2.0 is released, at which point the API will be
+stable based on the minor version. (When v1.0.0 is released, the API will be stable
+based on the major version - but that's a long way away.)
+
 ## Usage
 
 Make sure you have the `reflect-metadata` package installed (`npm i reflect-metadata`),
@@ -15,9 +23,6 @@ then do `npm i barnaclejs`.
 import "reflect-metadata";
 import * as barnacle from "barnaclejs";
 
-const manager = new barnacle.EntityManager();
-
-@barnacle.entity()
 class User {
     // nullable: false by default
     @barnacle.property()
@@ -36,7 +41,7 @@ class User {
     }
 }
 
-console.log(manager.toString(User)); /* should output:
+console.log(barnacle.toSchema(User)); /* should output:
 type User {
     id: Int!
     lastIP: String
@@ -47,8 +52,7 @@ type User {
 
 ## To-do
 
-- Implement proper unit tests
-- Remove manual instantiation of EntityManager (allow still, but use a singleton instance if not specified)
-- Better type inference (if possible?)
-- Support methods
-- Expand scope to handling requests? (generating resolvers, etc)
+- [ ] Implement proper unit tests
+- [ ] Better type inference (if possible?)
+- [ ] Support methods
+- [ ] Expand scope to handling requests? (generating resolvers, etc)
