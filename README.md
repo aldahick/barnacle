@@ -39,6 +39,11 @@ class User {
     getName() {
         return "Bob";
     }
+
+    // infers methods too!
+    getEmail(actual: boolean): string {
+        return actual ? "me@barnacle.com" : "not-me@barnacle.com";
+    }
 }
 
 console.log(barnacle.toSchema(User)); /* should output:
@@ -46,6 +51,7 @@ type User {
     id: Int!
     lastIP: String
     phoneNumbers: [String]!
+    getEmail(actual: Boolean!): String!
 }
 */
 ```
