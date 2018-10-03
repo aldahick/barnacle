@@ -3,13 +3,13 @@ import * as barnacle from "../../lib";
 export class User {
     constructor(id: number) { this.id = id; }
 
-    @barnacle.property()
+    @barnacle.field()
     id: number;
 
-    @barnacle.property({ nullable: true })
+    @barnacle.field({ nullable: true })
     firstName?: string;
 
-    @barnacle.property({ type: "[String]" })
+    @barnacle.field({ type: "[String]" })
     phoneNumbers?: string[];
 
     static readonly schema = `type User {

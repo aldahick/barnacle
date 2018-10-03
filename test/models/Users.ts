@@ -2,7 +2,7 @@ import * as barnacle from "../../lib";
 import { User } from "./User";
 
 export class Users {
-    @barnacle.method()
+    @barnacle.field()
     findOne(id: number): User { return new User(id); }
 
     static readonly schema = `type Users {

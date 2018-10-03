@@ -25,14 +25,14 @@ import * as barnacle from "barnaclejs";
 
 class User {
     // nullable: false by default
-    @barnacle.property()
+    @barnacle.field()
     id!: number;
 
-    @barnacle.property({ nullable: true })
+    @barnacle.field({ nullable: true })
     lastIP?: string;
 
     // manually override type inference (because Typescript doesn't automagically emit all types :( )
-    @barnacle.property({ type: "[String]" })
+    @barnacle.field({ type: "[String]" })
     phoneNumbers!: string[];
 
     // not a GraphQL property, no decorator
