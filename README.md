@@ -55,10 +55,3 @@ type User {
 }
 */
 ```
-
-## To-do
-
-- [ ] Implement proper unit tests
-- [ ] Better type inference (if possible?)
-- [ ] Support methods
-- [ ] Expand scope to handling requests? (generating resolvers, etc)
