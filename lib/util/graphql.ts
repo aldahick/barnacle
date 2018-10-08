@@ -11,7 +11,8 @@ function getGraphQLType(type: Function): string {
     return type.name;
 }
 
-export function getFullGraphQLType(type: Function | string, nullable: boolean): string {
+export function getFullGraphQLType(type: Function | string | undefined, nullable: boolean): string | undefined {
+    if (type === undefined) return undefined;
     let rawType = typeof(type) === "string" ? type : getGraphQLType(type);
     if (!nullable) rawType += "!";
     return rawType;
