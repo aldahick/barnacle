@@ -35,7 +35,9 @@ export const field = (options?: FieldOptions) => <T, K extends keyof T & string>
             name: parameter,
             type: options!.arguments![parameter] || paramTypes[i]
         }));
-        schema += `(${parameters.map(p => `${p.name}: ${p.type}`)})`;
+        if (parameters.length > 0) {
+            schema += `(${parameters.map(p => `${p.name}: ${p.type}`)})`;
+        }
         Reflect.defineMetadata("barnacle:parameters", parameters, target, key);
     }
     if (type !== undefined) {
