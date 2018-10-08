@@ -41,6 +41,7 @@ class User {
     }
 
     // infers methods too!
+    @barnacle.field()
     getEmail(actual: boolean): string {
         return actual ? "me@barnacle.com" : "not-me@barnacle.com";
     }
