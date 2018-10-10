@@ -26,24 +26,16 @@ export const field = (options?: FieldOptions) => <T, K extends keyof T & string>
     options.nullable = options.nullable === undefined ? false : options.nullable;
     options.arguments = options.arguments || {};
     const type = getFullGraphQLType(options.type, options.nullable);
-    let schema = key as string;
     if (isFunction) {
         const paramTypes = ((Reflect.getMetadata("design:paramtypes", target, key) || []) as any[]).map(type =>
-            getFullGraphQLType(type, false)
+            getFullGraphQLType(type, false)!
         );
         const parameters = getFunctionParameters(target[key] as any).map((parameter, i) => ({
             name: parameter,
             type: options!.arguments![parameter] || paramTypes[i]
         }));
-        if (parameters.length > 0) {
-            schema += `(${parameters.map(p => `${p.name}: ${p.type}`)})`;
-        }
         Reflect.defineMetadata("barnacle:parameters", parameters, target, key);
     }
-    if (type !== undefined) {
-        schema += `: ${type}`;
-    }
     Reflect.defineMetadata("barnacle:type", type, target, key);
-    Reflect.defineMetadata("barnacle:schema", schema, target, key);
-    pushMetadataArray(target, "barnacle:propertyNames", key);
+    pushMetadataArray(target, "barnacle:fieldNames", key);
 };
